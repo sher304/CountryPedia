@@ -10,6 +10,12 @@ import RxSwift
 
 class HomeViewController: UIViewController {
     
+    let disposeBag = DisposeBag()
+    
+    private lazy var viewModel = {
+        return HomeViewModel()
+    }()
+    
     private lazy var countriesTableView: UITableView = {
         let tableV = UITableView()
         
@@ -19,12 +25,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
+        bind()
     }
     
  
 }
 
 extension HomeViewController{
+    private func bind(){
+        viewModel.viewDiDLoad()
+        viewModel.countriesSubscriber.subscribe { data in
+            
+        }.disposed(by: disposeBag)
+    }
+    
     private func initTableView(){
         
     }
