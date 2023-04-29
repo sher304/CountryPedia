@@ -10,4 +10,6 @@ target 'CountryPedia' do
 	pod 'Alamofire'
 	pod 'RxSwift'
 	pod 'Kingfisher'
+	pod 'RxCocoa'
+
 end

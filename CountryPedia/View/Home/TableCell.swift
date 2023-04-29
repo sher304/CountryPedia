@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class CountryCell: UITableViewCell{
+    
+    public static var cellId: String{
+        return "CountryCell"
+    }
     
     private lazy var countryName: UILabel = {
         let label = UILabel()
@@ -28,18 +33,15 @@ class CountryCell: UITableViewCell{
     }
     
     private func setupConstraints(){
-        
-    }
-}
-
-extension CountryCell{
-    
-    public static var cellId: String{
-        return "CountryCell"
+        contentView.addSubview(countryName)
+        countryName.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
-    public func register(tableView: UITableView){
-        tableView.register(CountryCell.self, forCellReuseIdentifier: CountryCell.cellId)
+    public func fetchData(title: String){
+        DispatchQueue.main.async {
+            self.countryName.text = title
+        }
     }
-    
 }
