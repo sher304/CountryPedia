@@ -15,9 +15,12 @@ class HomeViewModel {
     var countriesSubscriber: Observable<Countries> {
         return countriesSubject.asObservable()
     }
-        
     
-    func viewDiDLoad(){
+    private lazy var detailViewModel = {
+        return DetailVM()
+    }()
+    
+    public func viewDiDLoad(){
         ApiAuth().getAllCountries { [self] countriesData in
             switch countriesData{
             case.success(let countries):
@@ -29,5 +32,10 @@ class HomeViewModel {
         }
     }
     
-    
+    public func selectedCountry(code: String){
+        detailViewModel.code.onNext(code)
+        detailViewModel.code.subscribe(onNext: { data in
+            print(data, "viewmodel")
+        })
+    }
 }

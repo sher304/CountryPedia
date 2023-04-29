@@ -367,3 +367,44 @@ enum Status: String, Codable {
 }
 
 typealias Countries = [Country]
+
+
+// MARK: - SingleCountryElement
+struct SingleCountryElement: Codable {
+    let name: Name
+    let tld: [String]
+    let cca2, ccn3, cca3, cioc: String
+    let independent: Bool
+    let status: String
+    let unMember: Bool
+    let currencies: Currencies
+    let idd: Idd
+    let capital, altSpellings: [String]
+    let region, subregion: String
+    let languages: Languages
+    let translations: [String: Translation]
+    let latlng: [Double]
+    let landlocked: Bool
+    let area: Int
+    let demonyms: Demonyms
+    let flag: String
+    let maps: Maps
+    let population: Int
+    let fifa: String
+    let car: Car
+    let timezones, continents: [String]
+    let flags: Flags
+    let coatOfArms: CoatOfArms
+    let startOfWeek: String
+    let capitalInfo: CapitalInfo
+    let postalCode: PostalCode
+}
+
+// MARK: - Languages
+struct Languages: Codable {
+    let eng: String
+}
+
+
+typealias SingleCountry = [SingleCountryElement]
+

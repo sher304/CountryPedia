@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 
 class CountryCell: UITableViewCell{
@@ -33,15 +34,24 @@ class CountryCell: UITableViewCell{
     }
     
     private func setupConstraints(){
+        contentView.addSubview(countryFlag)
+        countryFlag.snp.makeConstraints { make in
+            make.leading.equalTo(20)
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(contentView.frame.height / 2)
+        }
+        
         contentView.addSubview(countryName)
         countryName.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.equalTo(countryFlag.snp.trailing).offset(40)
+            make.centerY.equalToSuperview()
         }
     }
     
-    public func fetchData(title: String){
+    public func fetchData(title: String, image: String){
         DispatchQueue.main.async {
             self.countryName.text = title
+            self.countryFlag.kf.setImage(with: URL(string: image))
         }
     }
 }

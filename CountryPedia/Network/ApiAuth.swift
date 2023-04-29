@@ -16,4 +16,10 @@ class ApiAuth {
         Network.baseUrl(url: url, method: "get", completion: completion)
     }
     
+    func getSingleCountry(code: String, completion: @escaping(Result<SingleCountry, Error>) -> Void){
+        let url = URLRequest(url: URL(string: "\(urlFactory.getCountry)\(code)")!)
+        print(url)
+        Network.baseUrl(url: url, method: "get", completion: completion)
+    }
+    
 }

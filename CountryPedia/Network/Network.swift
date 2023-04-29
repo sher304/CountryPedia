@@ -12,7 +12,7 @@ class Network{
     
     static func baseUrl<T: Codable>(url: URLRequest, method: String, completion: @escaping(Result<T, Error>) -> Void){
         guard url.url != nil else { return }
-        
+        print(url, "url")
         var request = URLRequest(url: url.url!)
         request.httpMethod = method.uppercased()
         
