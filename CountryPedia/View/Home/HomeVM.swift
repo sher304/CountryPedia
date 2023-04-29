@@ -16,9 +16,7 @@ class HomeViewModel {
         return countriesSubject.asObservable()
     }
     
-    private lazy var detailViewModel = {
-        return DetailVM()
-    }()
+    private lazy var detailViewModel = DetailVM.sahred
     
     public func viewDiDLoad(){
         ApiAuth().getAllCountries { [self] countriesData in
@@ -33,9 +31,6 @@ class HomeViewModel {
     }
     
     public func selectedCountry(code: String){
-        detailViewModel.code.onNext(code)
-        detailViewModel.code.subscribe(onNext: { data in
-            print(data, "viewmodel")
-        })
+        self.detailViewModel.codeSubject.onNext(code)
     }
 }

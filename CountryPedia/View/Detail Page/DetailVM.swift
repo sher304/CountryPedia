@@ -12,24 +12,24 @@ import RxSwift
 class DetailVM{
     let disposeBag = DisposeBag()
     
-    let code = BehaviorSubject<String>(value: "")
-    
-    var codeSubscriber: Observable<String> {
-        return code.asObservable()
-    }
+    static let sahred = DetailVM()
     
     private let country = BehaviorSubject<SingleCountry>(value: [])
     var countrySubscriber: Observable<SingleCountry> {
         return country.asObservable()
     }
     
+    let codeSubject = BehaviorSubject<String>(value: "")
+    var codeSubscriber: Observable<String> {
+        return codeSubject.asObservable()
+    }
+    
     func viewDidLoad(){
         codeSubscriber.subscribe { code in
-            print("viewDidLoad", code)
             ApiAuth().getSingleCountry(code: code) { countryData in
                 switch countryData{
                 case.success(let country):
-                    print(countryData)
+                    print(country, "viwedidload")
                     self.country.onNext(country)
                     break
                 case.failure(_):
