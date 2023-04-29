@@ -20,6 +20,8 @@
 		60C115B929FC600400D681E4 /* UrlFactoty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C115B829FC600400D681E4 /* UrlFactoty.swift */; };
 		60C115BB29FC608300D681E4 /* ApiAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C115BA29FC608300D681E4 /* ApiAuth.swift */; };
 		60C115BD29FC60A800D681E4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C115BC29FC60A800D681E4 /* Model.swift */; };
+		60C115D329FD4A9900D681E4 /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C115D229FD4A9900D681E4 /* DetailVM.swift */; };
+		60C115D529FD512100D681E4 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C115D429FD512100D681E4 /* DetailVC.swift */; };
 		C7A49146080B08F78F7AFDE6 /* Pods_CountryPedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6983BE3C7D5E02C6697F83CC /* Pods_CountryPedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		60C115B829FC600400D681E4 /* UrlFactoty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactoty.swift; sourceTree = "<group>"; };
 		60C115BA29FC608300D681E4 /* ApiAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuth.swift; sourceTree = "<group>"; };
 		60C115BC29FC60A800D681E4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		60C115D229FD4A9900D681E4 /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
+		60C115D429FD512100D681E4 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		6983BE3C7D5E02C6697F83CC /* Pods_CountryPedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryPedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,7 @@
 		60C115A329FAD24400D681E4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				60C115D129FD462F00D681E4 /* Detail Page */,
 				60C115A629FAD27100D681E4 /* Home */,
 			);
 			path = View;
@@ -141,6 +146,15 @@
 				60C115BC29FC60A800D681E4 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		60C115D129FD462F00D681E4 /* Detail Page */ = {
+			isa = PBXGroup;
+			children = (
+				60C115D229FD4A9900D681E4 /* DetailVM.swift */,
+				60C115D429FD512100D681E4 /* DetailVC.swift */,
+			);
+			path = "Detail Page";
 			sourceTree = "<group>";
 		};
 		62775938C0042F089CF657A2 /* Pods */ = {
@@ -280,6 +294,8 @@
 				60C1159629FAD1FF00D681E4 /* CountryPedia.xcdatamodeld in Sources */,
 				60C115A829FAD2AD00D681E4 /* HomeVM.swift in Sources */,
 				60C1159029FAD1FF00D681E4 /* HomeVC.swift in Sources */,
+				60C115D529FD512100D681E4 /* DetailVC.swift in Sources */,
+				60C115D329FD4A9900D681E4 /* DetailVM.swift in Sources */,
 				60C115BD29FC60A800D681E4 /* Model.swift in Sources */,
 				60C1158C29FAD1FF00D681E4 /* AppDelegate.swift in Sources */,
 				60C115B729FC5EC700D681E4 /* Network.swift in Sources */,

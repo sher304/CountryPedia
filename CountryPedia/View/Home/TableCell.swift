@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
+import SnapKit
 
 class CountryCell: UITableViewCell{
+    
+    public static var cellId: String{
+        return "CountryCell"
+    }
     
     private lazy var countryName: UILabel = {
         let label = UILabel()
@@ -28,18 +34,24 @@ class CountryCell: UITableViewCell{
     }
     
     private func setupConstraints(){
+        contentView.addSubview(countryFlag)
+        countryFlag.snp.makeConstraints { make in
+            make.leading.equalTo(20)
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(contentView.frame.height / 2)
+        }
         
-    }
-}
-
-extension CountryCell{
-    
-    public static var cellId: String{
-        return "CountryCell"
+        contentView.addSubview(countryName)
+        countryName.snp.makeConstraints { make in
+            make.leading.equalTo(countryFlag.snp.trailing).offset(40)
+            make.centerY.equalToSuperview()
+        }
     }
     
-    public func register(tableView: UITableView){
-        tableView.register(CountryCell.self, forCellReuseIdentifier: CountryCell.cellId)
+    public func fetchData(title: String, image: String){
+        DispatchQueue.main.async {
+            self.countryName.text = title
+            self.countryFlag.kf.setImage(with: URL(string: image))
+        }
     }
-    
 }
