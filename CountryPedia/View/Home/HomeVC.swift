@@ -53,7 +53,6 @@ extension HomeViewController{
             .subscribe { indexPath in
                 self.viewModel.countriesSubscriber.subscribe { countriesData in
                     let countries = countriesData.element?[indexPath.element?.row ?? 0]
-                    self.present(DetailVC(), animated: true)
                     self.viewModel.selectedCountry(code: countries?.cca2 ?? "")
                 }
             }.disposed(by: disposeBag)

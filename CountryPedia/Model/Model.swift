@@ -380,7 +380,7 @@ struct SingleCountryElement: Codable {
     let idd: Idd
     let capital: [String]
     let region, subregion: String
-    let latlng: [Int]
+    let latlng: [Double]
     let landlocked: Bool
     let borders: [String]
     let area: Int
