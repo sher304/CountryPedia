@@ -19,7 +19,9 @@ class Network{
             DispatchQueue.main.async {
                 guard let data = responce.data,
                       let jsonObj = try? JSONDecoder().decode(T.self, from: data)
-                else { return }
+                else {
+                    print("Error Network")
+                    return }
                 completion(.success(jsonObj))
             }
         }

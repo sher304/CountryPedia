@@ -123,7 +123,7 @@ struct Currencies: Codable {
     let bgn, khr, jep, irr: Aed?
     let tjs, omr, lbp, sbd: Aed?
     let hnl: Aed?
-
+    
     enum CodingKeys: String, CodingKey {
         case bbd = "BBD"
         case eur = "EUR"
@@ -377,19 +377,17 @@ struct SingleCountryElement: Codable {
     let independent: Bool
     let status: String
     let unMember: Bool
-    let currencies: Currencies
     let idd: Idd
-    let capital, altSpellings: [String]
+    let capital: [String]
     let region, subregion: String
-    let languages: Languages
-    let translations: [String: Translation]
-    let latlng: [Double]
+    let latlng: [Int]
     let landlocked: Bool
+    let borders: [String]
     let area: Int
-    let demonyms: Demonyms
     let flag: String
     let maps: Maps
     let population: Int
+    let gini: Gini
     let fifa: String
     let car: Car
     let timezones, continents: [String]
@@ -400,11 +398,15 @@ struct SingleCountryElement: Codable {
     let postalCode: PostalCode
 }
 
-// MARK: - Languages
-struct Languages: Codable {
-    let eng: String
+
+// MARK: - Gini
+struct Gini: Codable {
+    let the2018: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case the2018 = "2018"
+    }
 }
 
 
 typealias SingleCountry = [SingleCountryElement]
-

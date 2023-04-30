@@ -37,10 +37,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController{
     private func bind(){
         viewModel.viewDiDLoad()
-        viewModel.countriesSubscriber.subscribe { data in
-            
-            self.countriesTableView.reloadData()
-        }.disposed(by: disposeBag)
     }
     
     private func initTableView(){
@@ -48,10 +44,10 @@ extension HomeViewController{
         self.viewModel.countriesSubscriber
             .bind(to: countriesTableView
                 .rx.items(cellIdentifier: CountryCell.cellId, cellType: CountryCell.self)) { index, model, cell in
-                DispatchQueue.main.async {
-                    cell.fetchData(title: model.name.official.description, image: model.flags.png)
-                }
-            }.disposed(by: disposeBag)
+                    DispatchQueue.main.async {
+                        cell.fetchData(title: model.name.official.description, image: model.flags.png)
+                    }
+                }.disposed(by: disposeBag)
         
         countriesTableView.rx.itemSelected
             .subscribe { indexPath in

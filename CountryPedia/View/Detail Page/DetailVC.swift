@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 
 class DetailVC: UIViewController{
     
     private lazy var detailViewModel = DetailVM.sahred
-        
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,6 @@ extension DetailVC{
         detailViewModel.viewDidLoad()
         detailViewModel.countrySubscriber.subscribe { country in
             print(country.element, "detail vc")
-        }
+        }.disposed(by: disposeBag)
     }
 }
